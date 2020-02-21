@@ -277,7 +277,7 @@ Whits memohon kepada kalian yang sudah jago mengolah data untuk mengerjakan lapo
 
       # check duplicates
       for (( i = 0; i <= $end_num-$start_num; i++ )); do
-        is_dup=$(awk '/"${link_arr[$i]}"/ {a=1} END {if (a==1) {print 1}}' location.log )
+        is_dup=$(awk -v pattern="${link_arr[$1]}" '$0 ~ pattern {a=1} END {if (a==1) {print 1}}' location.log )
         if [[ $is_dup == "1" ]]; then
           temp=$((${i}+${start_num}))
           `mv pdkt_kusuma_$temp duplicate/duplicate_$temp`
@@ -289,7 +289,7 @@ Whits memohon kepada kalian yang sudah jago mengolah data untuk mengerjakan lapo
 
       # appned to location.log
       for i in "${link_arr[@]}"; do
-        is_dup=$(awk '/"${link_arr[$i]}"/ {a=1} END {if (a==1) {print 1}}' location.log )
+        is_dup=$(awk -v pattern="${link_arr[$1]}" '$0 ~ pattern {a=1} END {if (a==1) {print 1}}' location.log )
 
         if [[ $is_dup != "1" ]]; then
           `printf '%s\n' "$i" >> location.log`
