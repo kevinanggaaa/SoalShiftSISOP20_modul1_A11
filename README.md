@@ -302,4 +302,4 @@ Whits memohon kepada kalian yang sudah jago mengolah data untuk mengerjakan lapo
 
 **Crontab**
      
-     5 6,14,22 * * 0-5 cd /home/nash/Tugas/shift1/soal3 && ./soal3.sh
+     5 6,14,22 * * 0-5 cd ~/Documents/shift1/soal3 && ./soal3.sh
